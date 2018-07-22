@@ -82,8 +82,8 @@ The dependencies can be installed on Ubuntu using apt-get:
 ::
 
     sudo apt-get install build-essential cmake libglib2.0-dev libqt4-dev \
-      libx11-dev libxext-dev libxt-dev python-dev python-lxml python-numpy \
-      python-scipy python-yaml
+      pyqt4-dev-tools libx11-dev libxext-dev libxt-dev python-dev python-lxml \
+      python-numpy python-scipy python-yaml libqwt-dev
 
 On Ubuntu the build does not require VTK to be installed.  A compatible version
 of VTK will be downloaded (precompiled binaries) at build time.
@@ -96,13 +96,15 @@ Compiling
 ---------
 
 ::
-
+    
+    export CMAKE_PREFIX_PATH=/opt/drake/lib/cmake
     make superbuild
 
 This is an alias for:
 
 ::
 
+    export CMAKE_PREFIX_PATH=/opt/drake/lib/cmake
     mkdir build && cd build
     cmake ../distro/superbuild
     make
